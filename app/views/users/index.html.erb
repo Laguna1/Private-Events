@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users#index.html.erb_by default</h1>
-
+<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Sign Up", '/users/new', method: :get%>
 <table>
   <thead>
     <tr>
@@ -31,3 +32,4 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+

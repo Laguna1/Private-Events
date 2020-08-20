@@ -2,13 +2,16 @@
 
 <div class="row">
   <div class="col-md-6 offset-3">
-     <%= form_tag '/login' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "Login"%>
-<%end%>
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: " mt-2 btn btn-primary" %>
+    <% end %>
 
   </div>
 </div>
