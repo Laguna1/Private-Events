@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users#index.html.erb_by default</h1>
-<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Log in", '/login', method: :get%>
 <%= button_to "Sign Up", '/users/new', method: :get%>
 <table>
   <thead>
@@ -17,6 +17,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+      
         <td><%= user.name %></td>
         <td><%= user.username %></td>
         <td><%= user.email %></td>

@@ -1,8 +1,11 @@
-<h1>Welcome</h1>
+<h1 class="text-center">Welcome</h1>
+<h2 class="text-center">#sessions/welcome.html.erb</h2>
 
 <% if logged_in? %>
   <h1>You are Logged In, <%= current_user.username %></h1>
+  <% else %>
+  <p class="text-center">New user? <%= link_to "Sign up now!", signup_path %></p>
 <%end%>
 
-<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Log in", '/login', method: :get%>
 <%= button_to "Sign Up", '/users/new', method: :get%>
