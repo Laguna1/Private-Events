@@ -3,13 +3,16 @@
 <div class="row">
   <div class="offset-4 col-md-4">
       <h3 class='text-center'>
+      <figure class="image is-64x64">
+      <%= gravatar_for @user %>
+      
         <%= @user.name %>
+        </figure>
       </h3>
-      <h3 class='text-center'>
-        <%= @user.email %>
-      </h3>
+      <div class='text-center'>
+      <%= link_to 'Edit User', edit_user_path(@user) %> |
+      <%= link_to "Delete Account", @user, method: :delete, data: { confirm: "Are you sure?" } %> |
+      <%= link_to 'Back', users_path %>
+      </div>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
