@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
-  skip_before_action :authorized, only: %i[new create]
+  # skip_before_action :authorized, only: [:new, :create]
+  # session[:current_user_id] = user.id
 
   # GET /users
   # GET /users.json

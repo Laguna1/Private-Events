@@ -1,22 +1,24 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: %i[new create welcome]
+  # skip_before_action :authorized, only: %i[new create welcome]
 
-  def new; end
+  def new
+    # @session = Session.new
+  end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user&.authenticate(params[:session][:password])
-      log_in user
-      redirect_back_or user
+    if user && @user.authenticate(params[:session][:password])
+      session[:user_id] = @user.id
+      redirect_to '/welcome'
     else
       flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      redirect_to '/login'
     end
   end
 
   def destroy
-    log_out
-    redirect_to root_url
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Logged Out!'
   end
 
   def login; end

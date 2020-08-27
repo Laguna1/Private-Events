@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !current_user.nil?
+    !!session[:user_id]
   end
 
   def authorized
-    redirect_to '/welcome' unless logged_in?
+    redirect_to '/users' unless logged_in?
   end
 
   private
